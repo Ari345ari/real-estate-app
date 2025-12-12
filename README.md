@@ -1,4 +1,4 @@
-ReEaalEstate CS425 Project 
+```ReEaalEstate CS425 Project 
 Built with React and Node.js/PostgreSQL
 
 Frontend (React, React Router, Axios, CSS)
@@ -53,3 +53,4 @@ The app will run on http://localhost:3000
 Author
 Developed as a project for CS425 IIT 
 By Ariunjargal Ariubnbold 
+```
