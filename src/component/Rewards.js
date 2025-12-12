@@ -98,7 +98,7 @@ function Rewards({ token, user }) {
         </div>
       </div>
 
-      {myReward ? (
+      {myReward && Object.keys(myReward).length > 0 ? (
         <div className="card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
             <div>
@@ -110,7 +110,7 @@ function Rewards({ token, user }) {
             </div>
             <div style={{ textAlign: 'right' }}>
               <p style={{ color: '#666', fontSize: '14px', margin: 0 }}>Earning</p>
-              <p style={{ fontSize: '18px', fontWeight: '600', margin: '5px 0' }}>{myReward.award_points} pts/booking</p>
+              <p style={{ fontSize: '18px', fontWeight: '600', margin: '5px 0' }}>{myReward.award} pts/booking</p>
               <p style={{ color: '#666', fontSize: '13px', margin: 0 }}>Total earned: {points} | Used: {usedPoints}</p>
             </div>
           </div>
@@ -123,11 +123,11 @@ function Rewards({ token, user }) {
           <p style={{ color: '#666', marginBottom: '20px' }}>Join a program to start earning points.</p>
           <div className="property-grid">
             {programs.map(program => (
-              <div key={program.rewards_id} className="card">
+              <div key={program.reward_id} className="card">
                 <h3 style={{ margin: '0 0 10px' }}>Rewards Program</h3>
-                <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '0 0 5px' }}>{program.award_points} pts</p>
+                <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '0 0 5px' }}>{program.award} pts</p>
                 <p style={{ fontSize: '14px', color: '#666', margin: '0 0 15px' }}>per booking</p>
-                <button onClick={() => handleJoin(program.rewards_id)} style={{ width: '100%' }}>Join</button>
+                <button onClick={() => handleJoin(program.reward_id)} style={{ width: '100%' }}>Join</button>
               </div>
             ))}
           </div>

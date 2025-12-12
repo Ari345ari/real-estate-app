@@ -576,7 +576,7 @@ function Home({ token, user }) {
                     <p style={{ margin: '3px 0', fontSize: '16px', fontWeight: 'bold' }}><strong>Total:</strong> ${getFinalTotal()}</p>
                     {myReward && (
                       <p style={{ margin: '8px 0 3px', color: '#27ae60' }}>
-                        <strong>Points Earning:</strong> +{myReward.award_points} pts
+                        <strong>Points Earning:</strong> +{myReward.award} pts
                       </p>
                     )}
                   </div>
