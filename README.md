@@ -2,7 +2,7 @@ ReEaalEstate CS425 Project
 Built with React and Node.js/PostgreSQL
 
 Frontend (React, React Router, Axios, CSS)
-Backend (Node.js, Express, PostgreSQL, JWT Authentication, bcrypt)
+Backend (Node.js, Express, PostgreSQL, JWT Authentication)
 
 Features of the app
 
