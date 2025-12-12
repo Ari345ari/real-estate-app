@@ -19,6 +19,37 @@ Agents
 - Manage listings (edit and update property detials and images)
 - View bookings (see all bookings for your properties)
 
+Installation
+NEED
+Node.js 
+PostgreSQL
+npm
+
+To set the BACKEND
+
+cd backend
+
+install dependencies
+
+npm install
+
+create .env file
+
+PORT=5000
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=realestate
+JWT_SECRET=your_jwt_secret
+
+start server in the frontend but to check if your server is running do (node server.js) 
+
+npm start
+
+the app will run on http://localhost:3000
+
+
 Author
 Developed as a project for CS425 IIT 
 By Ariunjargal Ariubnbold 
