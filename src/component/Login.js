@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Login({ setToken, setUser }) {
@@ -26,9 +26,9 @@ function Login({ setToken, setUser }) {
   };
 
   return (
-    <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-      <div className="card">
-        <h2>Login</h2>
+    <div className="container">
+      <div className="card" style={{ maxWidth: '400px', margin: '40px auto' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Login</h2>
         {message && <div className="message error">{message}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -39,8 +39,11 @@ function Login({ setToken, setUser }) {
             <label>Password</label>
             <input type="password" name="password" value={form.password} onChange={handleChange} required />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" style={{ width: '100%' }}>Login</button>
         </form>
+        <p style={{ textAlign: 'center', marginTop: '20px', color: '#666' }}>
+          Don't have an account? <Link to="/register" style={{ color: '#667eea' }}>Sign up</Link>
+        </p>
       </div>
     </div>
   );

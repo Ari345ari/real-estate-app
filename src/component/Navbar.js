@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar({ user, onLogout }) {
   const navigate = useNavigate();
+  const isAgent = user?.role === 'Agent' || user?.Role === 'Agent';
 
   const handleLogout = () => {
     onLogout();
@@ -12,19 +13,34 @@ function Navbar({ user, onLogout }) {
   return (
     <nav className="navbar">
       <div>
-        <Link to="/" style={{ fontSize: '18px', fontWeight: 'bold' }}>🏠 RealEstate</Link>
+        <Link to={isAgent ? "/dashboard" : "/"} style={{ fontSize: '18px', fontWeight: 'bold' }}>
+          🏠 RealEstate
+        </Link>
       </div>
       <div>
         {user ? (
-          <>
-            <Link to="/search">Search</Link>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/bookings">Bookings</Link>
-            <Link to="/profile">Profile</Link>
-            <button onClick={handleLogout} style={{ marginLeft: '20px', padding: '8px 15px' }}>Logout</button>
-          </>
+          isAgent ? (
+            <>
+              <Link to="/dashboard">Listings</Link>
+              <Link to="/bookings">Bookings</Link>
+              <Link to="/profile">Profile</Link>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/search">Search</Link>
+              <Link to="/neighborhoods">Neighborhoods</Link>
+              <Link to="/bookings">Bookings</Link>
+              <Link to="/profile">Profile</Link>
+              <Link to="/rewards">Rewards</Link>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          )
         ) : (
           <>
+            <Link to="/">Home</Link>
+            <Link to="/search">Search</Link>
+            <Link to="/neighborhoods">Neighborhoods</Link>
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
           </>
