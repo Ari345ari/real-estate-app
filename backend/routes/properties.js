@@ -9,13 +9,16 @@ router.get('/search', async (req, res) => {
     let query = `
       SELECT p.*, p.image_url, p.listing_type,
         COALESCE(h.number_of_rooms, a.number_of_rooms, v.number_of_rooms, 0) as number_of_rooms,
-        COALESCE(h.sqft, a.sqft, c.sqft, v.sqft, l.area, 0) as sqft
+        COALESCE(h.sqft, a.sqft, c.sqft, v.sqft, l.area, 0) as sqft,
+        n.location as neighborhood_name, n.description as neighborhood_desc, 
+        n.crime as crime_rate, n.nearby_schools
       FROM property p
       LEFT JOIN house h ON p.property_id = h.property_id
       LEFT JOIN apartment a ON p.property_id = a.property_id
       LEFT JOIN commercial c ON p.property_id = c.property_id
       LEFT JOIN vacation v ON p.property_id = v.property_id
       LEFT JOIN land l ON p.property_id = l.property_id
+      LEFT JOIN neighborhood n ON p.neighborhood_id = n.neighborhood_id
       WHERE p.available = true
     `;
     const params = [];

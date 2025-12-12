@@ -26,7 +26,7 @@ function Register({ setToken, setUser }) {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       setToken(res.data.token);
       setUser(res.data.user);
-      navigate('/dashboard');
+      navigate('/');
     } catch (err) {
       setMessage(err.response?.data?.error || 'Registration failed');
     }

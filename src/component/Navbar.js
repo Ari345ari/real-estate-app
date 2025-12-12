@@ -14,7 +14,7 @@ function Navbar({ user, onLogout }) {
     <nav className="navbar">
       <div>
         <Link to={isAgent ? "/dashboard" : "/"} style={{ fontSize: '18px', fontWeight: 'bold' }}>
-          🏠 RealEstate
+          ReEaalEstate
         </Link>
       </div>
       <div>
@@ -28,8 +28,6 @@ function Navbar({ user, onLogout }) {
             </>
           ) : (
             <>
-              <Link to="/search">Search</Link>
-              <Link to="/neighborhoods">Neighborhoods</Link>
               <Link to="/bookings">Bookings</Link>
               <Link to="/profile">Profile</Link>
               <Link to="/rewards">Rewards</Link>
@@ -38,9 +36,6 @@ function Navbar({ user, onLogout }) {
           )
         ) : (
           <>
-            <Link to="/">Home</Link>
-            <Link to="/search">Search</Link>
-            <Link to="/neighborhoods">Neighborhoods</Link>
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
           </>

@@ -7,10 +7,6 @@ function Login({ setToken, setUser }) {
   const [form, setForm] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -19,7 +15,7 @@ function Login({ setToken, setUser }) {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       setToken(res.data.token);
       setUser(res.data.user);
-      navigate('/dashboard');
+      navigate('/');
     } catch (err) {
       setMessage(err.response?.data?.error || 'Login failed');
     }
@@ -33,16 +29,16 @@ function Login({ setToken, setUser }) {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" name="email" value={form.email} onChange={handleChange} required />
+            <input type="email" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} required />
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input type="password" name="password" value={form.password} onChange={handleChange} required />
+            <input type="password" value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} required />
           </div>
           <button type="submit" style={{ width: '100%' }}>Login</button>
         </form>
         <p style={{ textAlign: 'center', marginTop: '20px', color: '#666' }}>
-          Don't have an account? <Link to="/register" style={{ color: '#667eea' }}>Sign up</Link>
+          Don't have an account? <Link to="/register" style={{ color: '#667eea' }}>Create Account</Link>
         </p>
       </div>
     </div>

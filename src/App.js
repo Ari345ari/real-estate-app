@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './component/Navbar';
 import Home from './component/Home';
 import Login from './component/Login';
 import Register from './component/Register';
 import Dashboard from './component/Dashboard';
-import SearchProperties from './component/SearchProperties';
 import Bookings from './component/Bookings';
 import Profile from './component/Profile';
 import Rewards from './component/Rewards';
-import Neighborhoods from './component/Neighborhoods';
 import './App.css';
 
 function App() {
@@ -32,11 +30,9 @@ function App() {
           <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
           <Route path="/register" element={<Register setToken={setToken} setUser={setUser} />} />
           <Route path="/dashboard" element={<Dashboard user={user} token={token} />} />
-          <Route path="/search" element={<SearchProperties token={token} user={user} />} />
           <Route path="/bookings" element={<Bookings token={token} user={user} />} />
           <Route path="/profile" element={<Profile token={token} user={user} />} />
           <Route path="/rewards" element={<Rewards token={token} user={user} />} />
-          <Route path="/neighborhoods" element={<Neighborhoods />} />
         </Routes>
       </div>
     </Router>

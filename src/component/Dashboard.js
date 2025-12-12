@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Dashboard({ user, token }) {
+  const navigate = useNavigate();
   const [properties, setProperties] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -16,7 +18,7 @@ function Dashboard({ user, token }) {
     rooms: '',
     business_type: '',
     image_url: '',
-    listing_type: 'rent' // rent or sale
+    listing_type: 'rent'
   });
 
   const authHeader = { headers: { Authorization: `Bearer ${token}` } };
@@ -31,10 +33,12 @@ function Dashboard({ user, token }) {
   };
 
   useEffect(() => {
-    if (isAgent) {
-      fetchProperties();
+    if (!isAgent) {
+      navigate('/');
+      return;
     }
-  }, [isAgent]);
+    fetchProperties();
+  }, [isAgent, navigate]);
 
   const fetchProperties = async () => {
     try {

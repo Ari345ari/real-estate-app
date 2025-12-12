@@ -18,7 +18,6 @@ const userRoutes = require('./routes/users');
 const propertyRoutes = require('./routes/properties');
 const bookingRoutes = require('./routes/bookings');
 const rewardRoutes = require('./routes/rewards');
-const neighborhoodRoutes = require('./routes/neighborhoods');
 
 app.get('/', (req, res) => {
   res.json({ message: 'Real estate backend running' });
@@ -29,7 +28,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/properties', propertyRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/rewards', rewardRoutes);
-app.use('/api/neighborhoods', neighborhoodRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err);
